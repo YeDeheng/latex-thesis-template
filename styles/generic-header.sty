@@ -1,0 +1,25 @@
+%
+%  This document style is meant to be included with the \input command
+% to create an arbitrary header and footer on a page.  By default, it
+% creates an empty header and a footer containing only a centered page
+% number.  These can be changed by defining (\def) the macros ghead
+% and gfoot.
+%
+
+%
+%  The default header and footer macros
+% 
+\def\ghead{}
+\def\gfoot{\hfil\thepage\hfil}
+
+%
+%  Create an appropriate page style
+%
+\def\ps@gheader{\let\@mkboth\@gobbletwo
+     \def\@oddhead{\ghead}\def\@oddfoot{\gfoot}
+     \let\@evenhead\@oddhead\let\@evenfoot\@oddfoot}
+
+%
+%  Set the page style
+%
+\pagestyle{gheader}

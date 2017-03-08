@@ -1,0 +1,148 @@
+\def\STYDIR{./styles}              % .sty/.cls file directory
+\def\FIGDIR{./figures}             % directory of pictures/diagrams
+
+% one side is for softcopy, two side is for hardcopy
+%\documentclass[12pt, a4paper, oneside]{Thesis} % Paper size, default font size and one-sided paper
+\documentclass[12pt, a4paper, twoside]{Thesis} % Paper size, default font size and one-sided paper
+
+\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+\usepackage{\STYDIR/mystyle}
+\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
+\hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
+\title{\ttitle} % Defines the thesis title - don't touch this
+
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\newcommand\Vtextvisiblespace[1][.3em]{%
+	\mbox{\kern.06em\vrule height.3ex}%
+	\vbox{\hrule width#1}%
+	\hbox{\vrule height.3ex}}
+
+\usepackage[perpage]{footmisc}
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\setstretch{1.6} % Line spacing of 1.3
+
+% Define the page headers using the FancyHdr package and set up for one-sided printing
+\fancyhead{} % Clears all page headers and footers
+\rhead{\thepage} % Sets the right side header to show the page number
+\lhead{} % Clears the left side page header
+
+\pagestyle{fancy} % Finally, use the "fancy" page style to implement the FancyHdr headers
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % New command to make the lines in the title page
+
+
+% PDF meta-data
+\hypersetup{pdftitle={\ttitle}}
+\hypersetup{pdfsubject=\subjectname}
+\hypersetup{pdfauthor=\authornames}
+\hypersetup{pdfkeywords=\keywordnames}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\maketitle
+
+\clearpage % Start a new page
+
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\addtotoc{Abstract} % Add the "Abstract" page entry to the Contents
+
+\abstract{
+
+Your abstract goes here... 
+
+}
+
+\clearpage % Start a new page
+\cleardoublepage
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\setstretch{1.5} % Reset the line-spacing to 1.3 for body text (if it has changed)
+
+\acknowledgements{
+	%\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
+thank you all...
+
+}
+
+\clearpage % Start a new page
+\cleardoublepage
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\pagestyle{fancy} % The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
+
+\lhead{\emph{Contents}} % Set the left side page header to "Contents"
+\tableofcontents % Write out the Table of Contents
+
+\lhead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
+\listoffigures % Write out the List of Figures
+
+\lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
+\listoftables % Write out the List of Tables
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{fancy} % Return the page headers back to the "fancy" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+\sloppy
+\input{Chapters/Chapter1}
+\input{Chapters/Chapter2} 
+\input{Chapters/Chapter3}
+\input{Chapters/Chapter4} 
+\input{Chapters/Chapter5} 
+\input{Chapters/Chapter6}
+%\input{Chapters/Chapter7} 
+%\input{Chapters/Chapter8} 
+%\input{Chapters/Chapter9} 
+
+ 
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+\input{Appendices/AppendixA}
+%\input{Appendices/AppendixB}
+%\input{Appendices/AppendixC}
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+\backmatter
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\label{Bibliography}
+
+\lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
+
+\bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+
+\bibliography{Bibliography} % The references (bibliography) information are stored in the file named "Bibliography.bib"
+\cleardoublepage
+\end{document}  

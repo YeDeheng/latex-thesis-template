@@ -1,0 +1,34 @@
+% ``tightenum'' environment
+\newcounter{bean}
+\newenvironment{tightenum}%
+{
+\begin{list}%
+{\arabic{bean}.}{\usecounter{bean}
+    \setlength{\topsep}{0in}
+    \setlength{\partopsep}{0in}
+    \setlength{\itemsep}{0in}
+    \setlength{\parsep}{0in}
+    \setlength{\leftmargin}{1.0em} %{1.5em}
+    \setlength{\rightmargin}{0in}
+    \setlength{\itemindent}{0in}
+}
+}%
+{ \end{list}}
+
+% ``tightsubenum'' enviornoment
+\newcounter{subbean}
+\newenvironment{tightsubenum}%
+{
+\begin{list}%
+{\alph{subbean}.}{\usecounter{subbean}
+    \setlength{\topsep}{0in}
+    \setlength{\partopsep}{0in}
+    \setlength{\itemsep}{0in}
+    \setlength{\parsep}{0in}
+    \setlength{\leftmargin}{1.0em}%{1.5em}
+    \setlength{\rightmargin}{0in}
+    \setlength{\itemindent}{0in}
+}
+}%
+{ \end{list}}
+
