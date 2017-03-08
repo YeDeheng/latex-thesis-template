@@ -1,5 +1,5 @@
 A very good thesis template in latex. 
 
-Suitable for all degree-seeking students. You can easily change the NTU logo to your own university logo.
+Suitable for all degree-seeking students. You can easily change the NTU logo to your own university logo. NTU PhD students can use it directly. 
 
-To use it, configure latex properly on your local machine, and compile main.tex. 
+To use it, config latex properly and compile main.tex. 
